@@ -53,23 +53,20 @@ public class Floyd {
     
     void floydsAlgorithm() {
         getGraph();
-        int[][] prevgraph = clone(graph);
-        int[][] curgraph = new int[n][n];
-        
+        int[][] graphcpy = clone(graph);
+		
         for(int k = 0; k < n; k ++) {
-            curgraph = clone(prevgraph);
             for (int i = 0; i < n; i++) {
                 for(int j = 0; j < n; j++) {
                     if(i == k || j == k) {
                         continue;       //do nothing if i or j is intermediate
                     } else {
-                        curgraph[i][j] = min(prevgraph[i][j], prevgraph[i][k] + prevgraph[k][j]);
+                        graphcpy[i][j] = min(graphcpy[i][j], graphcpy[i][k] + graphcpy[k][j]);
                     }
                 }
             }
-            prevgraph = clone(curgraph);
         }
-        printMatrix(curgraph);
+        printMatrix(graphcpy);
     }
     
     void printMatrix(int[][] matrix) {
