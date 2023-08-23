@@ -12,6 +12,7 @@ public class Dijkstra {
 		s = new boolean[n];
 		this.n = n;
 	}
+	
 	Scanner sc = new Scanner(System.in);
 	void getGraph() {
 		System.out.println("Enter the cost matrix: ");
@@ -26,13 +27,16 @@ public class Dijkstra {
 		}
 	}
 	
-	//to find the minimum vertex in the array 'dist[]' not in the list s
-	//also adds the minimum index to the list 's[]'
+	/*
+	 * to find the minimum vertex in the array 'dist[]' not in the list s
+	 * also adds the minimum index to the list 's[]'
+	 * @return index with the minimum weight
+	 */
 	int getMin() {
 		int min = Integer.MAX_VALUE;
 		int minIndex = 0;
 		for(int i = 0; i < n; i++) {
-			if(!s[i] && dist[i] < min){	//if 's[i]' is not considered yet && 'dist[i]' is the small
+			if(!s[i] && dist[i] < min){	//if 's[i]' is not considered yet && 'dist[i]' is the smaller than min
 				minIndex = i;
 				min = dist[i];
 			}
@@ -40,6 +44,11 @@ public class Dijkstra {
 		return minIndex;
 	}
 	
+	/*
+	 * finds the minimum of 2 numbers
+	 * @param 2 integers
+	 * @return smallest among the 2
+	 */
 	int min(int a, int b) {
 		if(b < a)
 			return b;
@@ -47,7 +56,10 @@ public class Dijkstra {
 			return a;
 	}
 	
-	//function for dijkstras algorithm
+	/*
+	 * function implementing Dijkstra's algorithm
+	 * finds the shortest parth from a given source vertex
+	 */
 	void dijkstra(){
 		getGraph();
 		System.out.println("Enter Source: ");

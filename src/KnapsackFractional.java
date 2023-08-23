@@ -3,7 +3,11 @@ import java.util.*;
 // fractional Knapsack problem
 public class KnapsackFractional {
 	
-	// funciton to return index having maximum profit
+	/*
+	 * funciton to return index having maximum profit
+	 * @param 1D array containing profit
+	 * @return index of the profit array containing the maximum profit
+	 */
 	static int getMaxIndex(float[] p) {
 		float maxProfit = 0.0f;
 		int maxIndex = 0;

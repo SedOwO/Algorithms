@@ -27,8 +27,8 @@ public class Floyd {
     
     /*
      * funciton to find the minimum of 2 numbers
-     * @param: 2 integers a and b
-     * @return: smallest of a and b
+     * @param 2 integers a and b
+     * @return smallest of a and b
      */
     int min(int a, int b) {
         return (a < b) ? a : b;
@@ -36,8 +36,8 @@ public class Floyd {
     
     /*
      * funciton to clone a matrix
-     * @param: 2D matrix
-     * @return: clone of the original matrix
+     * @param 2D matrix
+     * @return clone of the original matrix
      */
     int[][] clone(int[][] matrix) {
         if(matrix == null)
@@ -50,7 +50,9 @@ public class Floyd {
         return tmpMatrix;
     }
     
-    
+    /*
+     * function that implements Floyd-Warshall Algorithm
+     */
     void floydsAlgorithm() {
         getGraph();
         int[][] graphcpy = clone(graph);
@@ -69,6 +71,10 @@ public class Floyd {
         printMatrix(graphcpy);
     }
     
+    /*
+     * prints the cost matrix in a matrix form
+     * @param 2D matrix
+     */
     void printMatrix(int[][] matrix) {
         System.out.println("All pairs shortest path: ");
         for (int i = 0; i < n; i++) {
