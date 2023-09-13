@@ -44,8 +44,10 @@ public class Floyd {
             return null;
         
         int[][] tmpMatrix = new int[n][n];
-        for (int i = 0; i < matrix.length; i++) {
-            tmpMatrix[i] = Arrays.copyOf(matrix[i], matrix.length);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                tmpMatrix[i][j] = matrix[i][j];
+            }
         }
         return tmpMatrix;
     }
