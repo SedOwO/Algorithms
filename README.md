@@ -10,3 +10,5 @@ Design and Analysis of Algorithms using Java.
 * [Floyd's All Pair Shortest Path](src/Floyd.java)
 * [Fractional Knapsack](src/KnapsackFractional.java)
 * [0/1 Knapsack](src/KnapsackBinary.java)
+* [Sum of Subsets](src/SumOfSubsets.java)
+* [Hamiltonian Cycle](src/HamiltonianCycle.java)
