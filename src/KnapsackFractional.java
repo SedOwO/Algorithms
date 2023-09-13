@@ -8,12 +8,12 @@ public class KnapsackFractional {
 	 * @param 1D array containing profit
 	 * @return index of the profit array containing the maximum profit
 	 */
-	static int getMaxIndex(float[] p) {
-		float maxProfit = 0.0f;
+	static int getMaxIndex(float[] p, float[] w) {
+		float maxProfitRatio = 0.0f;
 		int maxIndex = 0;
 		for (int i = 0; i < p.length; i++) {
-			if(p[i] > maxProfit){
-				maxProfit = p[i];
+			if(p[i] > maxProfitRatio){
+				maxProfitRatio = p[i] / w[i];
 				maxIndex = i;
 			}
 		}
@@ -25,13 +25,13 @@ public class KnapsackFractional {
 		float profit = 0.0f;
 		float rc = m;
 		
-		int i = getMaxIndex(p);
+		int i = getMaxIndex(p, w);
 		while(w[i] <= rc) {
 			x[i] = 1;
 			rc -= w[i];
 			profit += p[i];
 			p[i] = 0;					//ugly part of the code
-			i = getMaxIndex(p);
+			i = getMaxIndex(p, w);
 		}
 		// fractional knapsack
 		if(rc != 0) {
