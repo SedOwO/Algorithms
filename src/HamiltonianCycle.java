@@ -46,7 +46,7 @@ public class HamiltonianCycle {
 						break;
 			
 			if(i == k)
-				if(k < n || (k == n && graph[x[n]][1]))	// checks for the validity of the cycle
+				if(k < n || (k == n && graph[x[n]][0]))	// checks for the validity of the cycle
 					return;		// return without modifying x[k]
 		}
 	}
