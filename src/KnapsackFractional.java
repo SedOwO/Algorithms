@@ -12,7 +12,7 @@ public class KnapsackFractional {
 		float maxProfitRatio = 0.0f;
 		int maxIndex = 0;
 		for (int i = 0; i < p.length; i++) {
-			if(p[i] > maxProfitRatio){
+			if(p[i] / w[i] > maxProfitRatio){
 				maxProfitRatio = p[i] / w[i];
 				maxIndex = i;
 			}
