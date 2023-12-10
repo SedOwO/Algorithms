@@ -3,13 +3,13 @@ import java.util.*;
 
 public class Dijkstra {
 	int graph[][];
-	boolean s[];
+	boolean set[];
 	int dist[];
 	int n;
 	Dijkstra(int n) {
 		graph = new int[n][n];
 		dist = new int[n];
-		s = new boolean[n];
+		set = new boolean[n];
 		this.n = n;
 	}
 	
@@ -18,25 +18,25 @@ public class Dijkstra {
 		System.out.println("Enter the cost matrix: ");
 		for(int i = 0; i < n; i++) {
 			for(int j = 0; j < n; j++) {
-				int tmp = sc.nextInt();
-				if(tmp == 0) 
+				int var = sc.nextInt();
+				if(var == 0) 
 					graph[i][j] = 9999;
 				else
-					graph[i][j] = tmp;
+					graph[i][j] = var;
 			}
 		}
 	}
 	
 	/*
-	 * to find the minimum vertex in the array 'dist[]' not in the list s
-	 * also adds the minimum index to the list 's[]'
+	 * to find the minimum vertex in the array 'dist[]' not in the list set
+	 * also adds the minimum index to the list 'set[]'
 	 * @return index with the minimum weight
 	 */
 	int getMin() {
 		int min = Integer.MAX_VALUE;
 		int minIndex = 0;
 		for(int i = 0; i < n; i++) {
-			if(!s[i] && dist[i] < min){	//if 's[i]' is not considered yet && 'dist[i]' is the smaller than min
+			if(!set[i] && dist[i] < min){	//if 'set[i]' is not considered yet && 'dist[i]' is the smaller than min
 				minIndex = i;
 				min = dist[i];
 			}
@@ -57,7 +57,7 @@ public class Dijkstra {
 	}
 	
 	/*
-	 * function implementing Dijkstra's algorithm
+	 * function implementing Dijkstra'set algorithm
 	 * finds the shortest parth from a given source vertex
 	 */
 	void dijkstra(){
@@ -66,15 +66,15 @@ public class Dijkstra {
 		int src = sc.nextInt();
 		for(int i = 0; i < n; i++) 
 			dist[i] = graph[src][i];
-		s[src] = true;
+		set[src] = true;
 		dist[src] = 0;
 		
 		for(int i = 0; i < n; i++) {
 			int w = getMin();
-			s[w] = true;
+			set[w] = true;
 			
 			for(int v = 0; v < n; v++) {
-				if(!s[v]) {
+				if(!set[v]) {
 					dist[v] = min(dist[v], dist[w] + graph[w][v]);
 				}
 			}
@@ -82,7 +82,7 @@ public class Dijkstra {
 		
 		//printing the array
 		System.out.println(Arrays.toString(dist));
-		//System.out.println(Arrays.toString(s));
+		//System.out.println(Arrays.toString(set));
 	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
