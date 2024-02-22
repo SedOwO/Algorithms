@@ -13,7 +13,7 @@ public class KnapsackBinary {
 	
 	/*
 	 * knapsack using dynamic programming approach
-	 * @param weight array, profit array and size of the knapsack
+	 * @param number of objects, weight array, profit array and size of the knapsack
 	 */
 	void knapsack(int n, int[] w, int[] p, int size) {
 		// 2d array to solve the problem using dynamic programing
